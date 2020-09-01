@@ -6,7 +6,7 @@ from readability.readability import Document
 from bs4 import BeautifulSoup
 
 # load spacy nlp model for web data - medium size
-nlp = load("en_core_web_md", parse=False)
+nlp = load("en_core_web_md", disable=['parser', 'ner'])
 
 # add textrank to the model pipeline
 tr = TextRank()
