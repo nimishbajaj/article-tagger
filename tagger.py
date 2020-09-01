@@ -2,13 +2,10 @@ from spacy import load
 from pytextrank import TextRank
 
 # load spacy nlp model for web data - medium size
-nlp = load("en_core_web_md", disable=['parser', 'ner'])
+nlp = load("en_core_web_md", disable=['ner'])
 
 # add textrank to the model pipeline
-tr = TextRank()
-nlp.add_pipe(tr.PipelineComponent, name="textrank", last=True)
-
-keyWordToScore = {}
+nlp.add_pipe(TextRank().PipelineComponent, name="textrank", last=True)
 
 
 def getKeyTerms(text, nlp):
@@ -29,6 +26,7 @@ def getKeyTerms(text, nlp):
                        'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan',
                        "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't",
                        'wouldn', "wouldn't"]
+    keyWordToScore = {}
 
     doc = nlp(text)
     phrases = [(' '.join([word for word in str(term.chunks[0]).split() if word not in cachedStopWords]), term.rank) for
@@ -36,14 +34,14 @@ def getKeyTerms(text, nlp):
     for p in phrases:
         keyWordToScore[str(p[0])] = p[1]
 
-    return [p[0] for p in phrases]
+    return ([p[0] for p in phrases], keyWordToScore)
 
 
 def getTags(text):
     from sklearn.cluster import Birch
     global nlp
     # fetch the keyterms
-    keyTerms = getKeyTerms(text, nlp)
+    keyTerms, keyWordToScore = getKeyTerms(text, nlp)
 
     word_vectors = list(map(lambda x: nlp(x.lower()).vector, keyTerms))
     NUM_CLUSTERS = 8
