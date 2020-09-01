@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <meta charset="UTF-8">
+    <title>News Category Prediction</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<main>
+    <body style="font-family: 'Montserrat Alternates', sans-serif;">
+    <div class="container">
+        <h1>News Category Prediction</h1>
+        <h2>Try below!</h2>
+        <div class="search-box">
+            <div class="search-icon"><i class="fa fa-search search-icon"></i></div>
+            <form action="http://localhost:5000/predict" method="post" class="search-form" style="width: 200px">
+                <input type="text" placeholder="Article URL" id="search" name="search" required="required"
+                       autocomplete="off">
+            </form>
+            <svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+                 x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
+                 xml:space="preserve">
+          <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"></path>
+                <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"></path>
+        </svg>
+            <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
+        </div>
+        <br>
+        <br>
+        <textarea style="  font-family: 'Montserrat Alternates', sans-serif;
+color:#003399;font-size: large" id="output-f" readonly wrap="hard" rows="100" cols="90">{{ prediction_text }}</textarea>
+    </div>
+    </body>
+</main>
+</html>
