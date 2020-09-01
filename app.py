@@ -1,7 +1,6 @@
 # import resource
 
 from flask import Flask, request, render_template
-import tagger
 
 app = Flask(__name__)
 
@@ -18,6 +17,7 @@ def getText(url):
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    import tagger
     url = request.form['search']
     text = getText(url)
     prediction = tagger.getTags(text)
