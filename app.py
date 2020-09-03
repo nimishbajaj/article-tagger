@@ -10,17 +10,17 @@ def home():
     return render_template('index.html')
 
 
-def getText(url):
+def get_text(url):
     import urlToText
-    return urlToText.getTextData(url)
+    return urlToText.get_text_data(url)
 
 
 @app.route('/predict', methods=['POST'])
 def predict():
     import tagger
     url = request.form['search']
-    text = getText(url)
-    prediction = tagger.getTags(text)
+    text = get_text(url)
+    prediction = tagger.getKeyTerms(text)
     return render_template('index.html', prediction_text='Found the following tags {}'.format(prediction))
     # return render_template('index.html', prediction_text='Fetching tags please wait..')
 
