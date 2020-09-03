@@ -1,6 +1,6 @@
 from spacy import load
 from pytextrank import TextRank
-from flask import jsonify
+from flask import jsonify, json
 
 # load spacy nlp model for web data - medium size
 nlp = load("en_core_web_md", disable=['ner'])
@@ -39,4 +39,4 @@ def getKeyTerms(text):
 
     response = {}
     response["dict"] = keyWordToScore
-    return jsonify(response)
+    return json.dumps(response)
