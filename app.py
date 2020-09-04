@@ -1,13 +1,13 @@
 # import resource
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, json
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', prediction_text = {})
 
 
 def get_text(url):
@@ -25,6 +25,8 @@ def predict():
     import requests
 
     url = "https://xacyumx10a.execute-api.us-east-2.amazonaws.com/dev/cluster"
+
+    # url = "http://0.0.0.0:5000/cluster"
 
     payload = keyTerms
     headers = {
@@ -44,8 +46,9 @@ def predict():
     print(response.text)
 
     # print(response.text)
-    return render_template('index.html', prediction_text='Found the following tags {}'.format(response.text))
+    return render_template('index.html', prediction_text=response.json())
     # return render_template('index.html', prediction_text='Fetching tags please wait..')
+
 
 
 if __name__ == "__main__":

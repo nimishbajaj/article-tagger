@@ -33,14 +33,16 @@ main {
   padding: 0 26px;
   width: 100%;
   height: 100%;
-  background: rgba(154,57,163,1);
-  background: -moz-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
-  /*background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(154,57,163,1)), color-stop(100%, rgba(65,103,168,1)));*/
-  background: -webkit-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
-  background: -o-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
-  background: -ms-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
-  background: linear-gradient(135deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a39a3', endColorstr='#4167a8', GradientType=1 );
+  /*background: rgba(154,57,163,1);*/
+  /*background: -moz-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);*/
+  /*!*background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(154,57,163,1)), color-stop(100%, rgba(65,103,168,1)));*!*/
+  /*background: -webkit-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);*/
+  /*background: -o-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);*/
+  /*background: -ms-linear-gradient(-45deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);*/
+  /*background: linear-gradient(135deg, rgba(154,57,163,1) 0%, rgba(65,103,168,1) 100%);*/
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a39a3', endColorstr='#4167a8', GradientType=1 );*/
+  background: darkblue;
+/*background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,188,233,1) 100%);*/
 }
 h1 {
   display: block;
@@ -85,7 +87,7 @@ textarea {
 .search-box {
   position: relative;
   width: 100%;
-  max-width: 360px;
+  /*max-width: 360px;*/
   height: 60px;
   border-radius: 120px;
   margin: 0 auto;
@@ -202,3 +204,18 @@ textarea {
 #search:-moz-placeholder {color: #FFFFFF;}
 #search::-moz-selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
 #search::selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+
+table, th, td {
+  border: 1px solid white;
+  /*background-color: whitesmoke;*/
+  color: white;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  padding: 10px;
+}

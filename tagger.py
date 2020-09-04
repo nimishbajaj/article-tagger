@@ -37,6 +37,13 @@ def getKeyTerms(text):
     for p in phrases:
         keyWordToScore[str(p[0])] = (str(p[1]), [str(x) for x in nlp(p[0].lower()).vector])
 
+    # types = ['PRODUCT', 'PERSON', 'ORG', 'NORP', 'FAC', 'GPE','LOC','EVENT','WORK_OF_ART',]
+    # for ent in doc.ents:
+    #     if ent.label_ in types:
+    #         print(ent, ent.label_)
+
+    # print([ent.text for ent in doc.ents if ent.label_ in types])
+
     response = {}
     response["dict"] = keyWordToScore
     return json.dumps(response)

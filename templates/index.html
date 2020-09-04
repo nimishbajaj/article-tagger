@@ -18,24 +18,47 @@
         <h2>Try below!</h2>
         <div class="search-box">
             <div class="search-icon"><i class="fa fa-search search-icon"></i></div>
-            <form action="http://18.224.212.27:5000/predict" method="post" class="search-form" style="width: 200px">
+            <form action="http://extractkeyphrases.com/predict" method="post" class="search-form" style="width: 200px">
                 <input type="text" placeholder="Article URL" id="search" name="search" required="required"
                        autocomplete="off">
             </form>
-            <svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-                 x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
-                 xml:space="preserve">
-          <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"></path>
-                <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"></path>
-        </svg>
+{#            <svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg"#}
+{#                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"#}
+{#                 x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"#}
+{#                 xml:space="preserve">#}
+{#          <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"></path>#}
+{#                <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"></path>#}
+                <svg id="svgelem" width="850px" height="60px" xmlns="http://www.w3.org/2000/svg">
+                 <rect x = 10 y = 5 rx="30" ry="30" width="830px" height="50px"
+                    style="stroke: white;fill-opacity: 0; stroke-width: 3px; stroke-opacity: 100">
+                 </rect>
+                </svg>
+{#        </svg>#}
             <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
         </div>
         <br>
         <br>
-        <textarea style="  font-family: 'Montserrat Alternates', sans-serif;
-color:#003399;font-size: large" id="output-f" readonly wrap="hard" rows="100" cols="90">{{ prediction_text }}</textarea>
+{#        <textarea style="  font-family: 'Montserrat Alternates', sans-serif;#}
+{#color:#003399;font-size: large" id="output-f" readonly wrap="hard" rows="100" cols="90">{{ prediction_text }}</textarea>#}
     </div>
+    <div>
+            <table style="width:400px" class="center">
+                <thead>
+                <tr>
+                    <th>Phrase</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for k,v in prediction_text.items()  %}
+                        <tr>
+                            <td>{{k}}</td>
+                            <td>{{v}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </body>
 </main>
 </html>
