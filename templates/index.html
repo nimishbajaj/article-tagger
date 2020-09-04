@@ -43,12 +43,15 @@
 {#color:#003399;font-size: large" id="output-f" readonly wrap="hard" rows="100" cols="90">{{ prediction_text }}</textarea>#}
     </div>
     <div>
+        {% if prediction_text %}
             <table style="width:400px" class="center">
                 <thead>
-                <tr>
-                    <th>Phrase</th>
-                    <th>Score</th>
-                </tr>
+
+                    <tr>
+                        <th>Phrase</th>
+                        <th>Score</th>
+                    </tr>
+
                 </thead>
                 <tbody>
                     {% for k,v in prediction_text.items()  %}
@@ -59,6 +62,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+    {% endif %}
         </div>
     </body>
 </main>
