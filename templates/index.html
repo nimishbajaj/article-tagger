@@ -38,7 +38,6 @@
             <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
         </div>
         <br>
-        <br>
 {#        <textarea style="  font-family: 'Montserrat Alternates', sans-serif;#}
 {#color:#003399;font-size: large" id="output-f" readonly wrap="hard" rows="100" cols="90">{{ prediction_text }}</textarea>#}
     </div>
@@ -57,7 +56,7 @@
                     {% for k,v in prediction_text.items()  %}
                         <tr>
                             <td>{{k}}</td>
-                            <td>{{v}}</td>
+                            <td>{{v}}%</td>
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -46,7 +46,8 @@ def predict():
     print(response.text)
 
     # print(response.text)
-    return render_template('index.html', prediction_text=response.json())
+    result = {k: v for k, v in sorted(response.json().items(), key=lambda item: item[1], reverse=True)}
+    return render_template('index.html', prediction_text=result)
     # return render_template('index.html', prediction_text='Fetching tags please wait..')
 
 

@@ -62,7 +62,7 @@ h2 {
 }
 .container {
   position: relative;
-  margin: calc(75px + 2vh + 2vw) auto 0 auto;
+  margin: calc(55px + 2vh + 2vw) auto 0 auto;
   padding: 0;
   width: 100%;
   max-width: 840px;
